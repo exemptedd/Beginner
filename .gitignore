@@ -1,0 +1,9 @@
+# База данных
+*.sqlite3
+
+# Временные файлы Python
+__pycache__/
+*.pyc
+
+# Настройки VS Code
+.vscode/

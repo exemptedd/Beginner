@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile of {{reader.name}}{% endblock title %}
+
+{%block content%}
+    <div class='profile-card'>
+        <h1>{{reader.name}}</h1>
+        <p>{{reader.email}}</p>
+        {% for book in borrow_list %}{{book}}<br>{% endfor %}
+    </div>
+
+{%endblock content%}

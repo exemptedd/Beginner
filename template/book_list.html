@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for book in  books %}
+
+<h1>{{ book.name }}</h1>
+
+    <p>{{ book.annotation | truncatewords:20 }}</p>
+    <p>{{ book.year }} </p>
+    <p>{{ book.quantity }} available</p>
+    <p>{{ book.author}}</p>
+    
+    
+{% endfor %}
+
+<p><a href="{% url 'index' %}">Home</a></p>
+<p><a href="{% url 'book_add' %}">Add Book</a></p>
+{% endblock content %}
