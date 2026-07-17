@@ -4,8 +4,10 @@
 
 {% for book in  books %}
 
-<h1>{{ book.name }}</h1>
-
+    <h1>{{ book.name }}</h1>
+    {% if book.cover %}
+        <img src="{{ book.cover.url }}" alt="{{ book.name }}" width="150">
+    {% endif %}
     <p>{{ book.annotation | truncatewords:20 }}</p>
     <p>{{ book.year }} </p>
     <p>{{ book.quantity }} available</p>

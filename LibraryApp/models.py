@@ -6,6 +6,7 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
     birthdate = models.DateField()
     bio = models.TextField()
+    photo = models.ImageField(upload_to='authors_pfp/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} {self.last_name}"
@@ -16,6 +17,8 @@ class Book(models.Model):
     annotation = models.TextField()
     year = models.DateField()
     quantity = models.PositiveIntegerField()
+    cover = models.ImageField(upload_to='books/', null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.name}"
@@ -25,6 +28,7 @@ class Reader(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
+    pfp = models.ImageField(upload_to='pfps/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"

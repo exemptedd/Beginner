@@ -25,7 +25,14 @@ class BookCreateView( LoginRequiredMixin, CreateView):
 
 @login_required
 def borrow_list(request):
-    reader = Reader.objects.get(user=request.user)
+    reader, created = Reader.objects.get_or_create(
+        user=request.user,
+        defaults={
+            'name': request.user.username, 
+            'email': request.user.email
+        }
+    )
+    
     borrow_list = BorrowRecord.objects.filter(reader=reader)
     return render(request, 'profile_user.html', {'borrow_list': borrow_list})
 
